@@ -1,0 +1,13 @@
+{
+  "name": "Freelancer Budget Calc",
+  "description": "Budget calc with currency conversion",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "flcalc.html",
+    "default_icon": "flcalc.png"
+  }
+}

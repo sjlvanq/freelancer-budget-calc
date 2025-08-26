@@ -1,0 +1,17 @@
+{
+  "name": "FreelancerBudgetCalc",
+  "version": "0.1.0",
+  "description": "Freelancer Budget Calc",
+  "main": "popup.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp src/flcalc.html dist/ && cp src/popup.js dist/ && cp manifest.json dist/ && cp flcalc.png dist/ && npx @tailwindcss/cli -i src/input.css -o dist/styles.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sjlvanq",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
+}
