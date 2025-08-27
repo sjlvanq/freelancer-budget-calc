@@ -25,20 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url)
       .then(response => {
           if(!response.ok) {
-	        throw new Error(`Response status: ${response.status}`);
-	      }
-		  return response.json();
-	  })
-	  .then(data => {
-		conversionRate = data[inputCurrency][outputCurrency];
-		chrome.storage.local.set({
-			'inputCurrency': inputCurrency,
-			'outputCurrency': outputCurrency,
-			'conversionRate': conversionRate
-		});
-		calculateAndSave();
-	  })
-	  .catch(error => console.error(error.message));
+            throw new Error(`Response status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+        conversionRate = data[inputCurrency][outputCurrency];
+        chrome.storage.local.set({
+            'inputCurrency': inputCurrency,
+            'outputCurrency': outputCurrency,
+            'conversionRate': conversionRate
+        });
+        calculateAndSave();
+      })
+      .catch(error => console.error(error.message));
   };
   
   chrome.storage.local.get(['moneyPerDay', 'daysOfWork', 'inputCurrency', 'outputCurrency', 'conversionRate'], (result) => {
@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
       daysOfWorkInput.value = result.daysOfWork;
     }
     if (result.inputCurrency) {
-		inputCurrencySelect.value = result.inputCurrency;
+        inputCurrencySelect.value = result.inputCurrency;
     }
     if (result.outputCurrency) {
-		outputCurrencySelect.value = result.outputCurrency;
+        outputCurrencySelect.value = result.outputCurrency;
     }
     if (result.conversionRate) {
-		conversionRate = result.conversionRate;
-	}
-	calculateAndSave();
+        conversionRate = result.conversionRate;
+    }
+    calculateAndSave();
   });
   
   moneyPerDayInput.addEventListener('input', calculateAndSave);
