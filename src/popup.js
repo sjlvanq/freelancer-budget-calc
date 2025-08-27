@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url)
       .then(response => {
           if(!response.ok) {
-	        throw new Error("Response status: ${response.status}");
+	        throw new Error(`Response status: ${response.status}`);
 	      }
 		  return response.json();
 	  })
