@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const outputCurrencySelect = document.getElementById('outputCurrency');
   const resultDiv = document.getElementById('result');
   var conversionRate = 1;
-  
+
   const calculateAndSave = () => {
     const moneyPerDay = parseFloat(moneyPerDayInput.value) || 0;
     const daysOfWork = parseFloat(daysOfWorkInput.value) || 0;
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'daysOfWork': daysOfWork
     });
   };
-  
+
   const changeCurrency = () => {
     const inputCurrency = inputCurrencySelect.value;
     const outputCurrency = outputCurrencySelect.value;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(error => console.error(error.message));
   };
-  
+
   chrome.storage.local.get(['moneyPerDay', 'daysOfWork', 'inputCurrency', 'outputCurrency', 'conversionRate'], (result) => {
     if (result.moneyPerDay) {
       moneyPerDayInput.value = result.moneyPerDay;
@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     calculateAndSave();
   });
-  
+
   moneyPerDayInput.addEventListener('input', calculateAndSave);
   daysOfWorkInput.addEventListener('input', calculateAndSave);
   inputCurrencySelect.addEventListener('change', changeCurrency);
   outputCurrencySelect.addEventListener('change', changeCurrency);
-  
+
 });

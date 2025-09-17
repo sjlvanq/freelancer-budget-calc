@@ -5,36 +5,36 @@
   <body class="p-3">
     <h1 class="text-xl font-bold text-center mb-6 text-gray-800">Freelancer Budget Calc</h1>
     <div class="flex items-stretch gap-2 mb-4">
-		<label for="daysOfWork" class="font-bold">Days of work</label>
-		<div><input type="number" id="daysOfWork" class="border bg-gray-400 p-3" /></div>
+        <label for="daysOfWork" class="font-bold">Days of work</label>
+        <div><input type="number" id="daysOfWork" class="border bg-gray-400 p-3" /></div>
     </div>
     <div class="mb-4">
-		<label for="moneyPerDay" class="font-bold">Money per day</label>
-		<div class="flex items-stretch gap-2">
-			<select id="inputCurrency" class="border border-gray-300 rounded-md bg-white text-gray-700">
-				<option value="ars">AR</option>
-				<option value="eur">EU</option>
-				<option value="mxn">MX</option>
-				<option value="pen">PE</option>
-				<option value="usd">US</option>
-			</select>
-		    <div><input type="number" id="moneyPerDay" class="border bg-gray-400 p-3" /></div>
-		</div>
+        <label for="moneyPerDay" class="font-bold">Money per day</label>
+        <div class="flex items-stretch gap-2">
+            <select id="inputCurrency" class="border border-gray-300 rounded-md bg-white text-gray-700">
+                <option value="ars">AR</option>
+                <option value="eur">EU</option>
+                <option value="mxn">MX</option>
+                <option value="pen">PE</option>
+                <option value="usd">US</option>
+            </select>
+            <div><input type="number" id="moneyPerDay" class="border bg-gray-400 p-3" /></div>
+        </div>
     </div>
     <div>
-		<label class="font-bold">Result</label>
-		<div class="flex items-stretch gap-2">
-			<select id="outputCurrency" class="border border-gray-300 rounded-md bg-white text-gray-700">
-				<option value="ars">AR</option>
-				<option value="eur">EU</option>
-				<option value="mxn">MX</option>
-				<option value="pen">PE</option>
-				<option value="usd">US</option>
-			</select>
-		    <div id="result" class="border bg-blue-300 p-3 flex-1">_ _ _</div>
-		</div>
+        <label class="font-bold">Result</label>
+        <div class="flex items-stretch gap-2">
+            <select id="outputCurrency" class="border border-gray-300 rounded-md bg-white text-gray-700">
+                <option value="ars">AR</option>
+                <option value="eur">EU</option>
+                <option value="mxn">MX</option>
+                <option value="pen">PE</option>
+                <option value="usd">US</option>
+            </select>
+            <div id="result" class="border bg-blue-300 p-3 flex-1">_ _ _</div>
+        </div>
     </div>
-    
+
     <script src="popup.js"></script>
   </body>
 </html>
