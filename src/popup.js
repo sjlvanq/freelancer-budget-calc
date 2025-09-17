@@ -1,3 +1,5 @@
+const REFRESH_INTERVAL_MS = 1 * 60 * 60 * 1000; // 1 hour
+
 document.addEventListener('DOMContentLoaded', () => {
   const moneyPerDayInput = document.getElementById('moneyPerDay');
   const daysOfWorkInput = document.getElementById('daysOfWork');
@@ -34,14 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.local.set({
             'inputCurrency': inputCurrency,
             'outputCurrency': outputCurrency,
-            'conversionRate': conversionRate
+            'conversionRate': conversionRate,
+            'lastUpdated' : Date.now()
         });
         calculateAndSave();
       })
       .catch(error => console.error(error.message));
   };
 
-  chrome.storage.local.get(['moneyPerDay', 'daysOfWork', 'inputCurrency', 'outputCurrency', 'conversionRate'], (result) => {
+  chrome.storage.local.get(['moneyPerDay', 'daysOfWork', 'inputCurrency', 'outputCurrency', 'conversionRate', 'lastUpdated'], (result) => {
     if (result.moneyPerDay) {
       moneyPerDayInput.value = result.moneyPerDay;
     }
@@ -57,7 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (result.conversionRate) {
         conversionRate = result.conversionRate;
     }
-    calculateAndSave();
+
+    // Refresh
+    if(!result.lastUpdated || Date.now() - result.lastUpdated > REFRESH_INTERVAL_MS){
+        changeCurrency();
+    } else {
+        calculateAndSave();
+    }
   });
 
   moneyPerDayInput.addEventListener('input', calculateAndSave);
