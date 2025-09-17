@@ -2,7 +2,7 @@
 
 A merely functional utility packed in a Chrome extension
 
-To build, run: `npm run build`
+To build, run: `npm install` && `npm run build`
 
 ![screenshot](https://github.com/sjlvanq/freelancer-budget-calc/blob/dev/screenshot.png?raw=true)
 
